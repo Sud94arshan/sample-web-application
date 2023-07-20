@@ -1,5 +1,5 @@
 pipeline{
-    agent none 
+    agent { label 'jenkins-java'} 
 
     stages {
         stage ("clone"){
