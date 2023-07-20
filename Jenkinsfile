@@ -1,5 +1,5 @@
 pipeline{
-    agent { label 'dev'} 
+    agent any 
 
     stages {
         stage ("clone"){
@@ -14,7 +14,7 @@ pipeline{
 
         }
         stage("build"){
-            agent any
+            agent {label 'dev'}
             steps{
                 script {
                     echo "This is build stage."
