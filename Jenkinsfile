@@ -22,7 +22,7 @@ pipeline{
             }
 
         }
-        stage ("test"){
+        stage ("deploy"){
             steps{
                 script {
                     echo "This is test stage."
