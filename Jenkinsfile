@@ -22,7 +22,7 @@ pipeline{
             }
             steps{
                 script {
-                    sh "python -version"
+                    sh "python --version"
 
                 }
 
@@ -38,7 +38,7 @@ pipeline{
             }
             steps{
                 script {
-                    sh "python -version"
+                    sh "python --version"
 
                 }
 
