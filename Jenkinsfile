@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent any 
     environment {
         demo = 'environment'
     }
@@ -13,7 +13,9 @@ pipeline{
             steps{
                 script {
                     currentBuild.displayName = env.JOB_NAME + "#" + env.BUILD_NUMBER
+                    currentBuild.description = env.BRANCH_NAME
                     currentBuild.description = env.GIT_COMMIT
+
                     echo "This is clone stage."
                     sh 'printenv'
 
