@@ -1,6 +1,6 @@
 pipeline{
     agent any 
-    environment {
+    environment { 
         demo = 'environment'
     }
 
@@ -9,6 +9,7 @@ pipeline{
             agent any
             environment {
                 stageenvironment = 'clone-stage'
+                docker-creds = credentials("dockerhub")
             }
             steps{
                 script {
@@ -18,6 +19,7 @@ pipeline{
 
                     echo "This is clone stage."
                     sh 'printenv'
+                    sh "docker login -u $docker-creds_USR -p $$docker-creds_PSW
 
                 }
 
