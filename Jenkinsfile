@@ -1,5 +1,5 @@
 pipeline{
-    agent none
+    agent any 
 
     stages {
         stage ("clone"){
@@ -14,10 +14,15 @@ pipeline{
 
         }
         stage("build"){
-            agent {label 'dev'}
+            agent {
+                docker {
+                    image 'python:3.7-buster'
+                    
+                }
+            }
             steps{
                 script {
-                    echo "This is build stage."
+                    sh 'python -version'
 
                 }
 
@@ -25,10 +30,15 @@ pipeline{
 
         }
         stage ("test"){
-            agent {label 'dev'} 
+            agent {
+                docker {
+                    image 'python:3.9-buster'
+                    
+                }
+            }
             steps{
                 script {
-                    echo "This is test stage."
+                    sh 'python -version'
 
                 }
 
