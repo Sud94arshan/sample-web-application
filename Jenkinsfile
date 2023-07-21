@@ -1,5 +1,5 @@
 pipeline{
-    agent any 
+    agent none 
     environment {
         demo = 'environment'
     }
@@ -12,6 +12,7 @@ pipeline{
             }
             steps{
                 script {
+                    currentBuild.displayName = env.JOB_NAME + "#" + env.BUILD_NUMBER
                     echo "This is clone stage."
                     sh 'printenv'
 
