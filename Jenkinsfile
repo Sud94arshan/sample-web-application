@@ -7,6 +7,9 @@ pipeline{
     stages {
         stage ("clone"){
             agent any
+            environment {
+                stageenvironment = 'clone-stage'
+            }
             steps{
                 script {
                     echo "This is clone stage."
@@ -21,12 +24,12 @@ pipeline{
             agent {
                 docker {
                     image 'python:3.7-buster'
-                    
                 }
             }
             steps{
                 script {
                     sh 'python --version'
+                    sh 'printenv'
 
                 }
 
