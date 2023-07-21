@@ -1,5 +1,8 @@
 pipeline{
-    agent any
+    agent none 
+    environment {
+        demo = 'environment'
+    }
 
     stages {
         stage ("clone"){
@@ -7,7 +10,7 @@ pipeline{
             steps{
                 script {
                     echo "This is clone stage."
-                    
+                    sh 'printenv'
 
                 }
 
