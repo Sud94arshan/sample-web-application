@@ -1,5 +1,5 @@
 pipeline{
-    agent any 
+    agent none 
 
     stages {
         stage ("clone"){
@@ -7,6 +7,7 @@ pipeline{
             steps{
                 script {
                     echo "This is clone stage."
+                    sh '"kshddhuskhfd'
 
                 }
 
@@ -49,6 +50,9 @@ pipeline{
     post {
         always {
             cleanWs()
+        }
+        failure {
+            echo "pipeline failed will be sending failure mail."
         }
     }
 }
