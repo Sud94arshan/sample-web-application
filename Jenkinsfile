@@ -7,7 +7,7 @@ pipeline{
             steps{
                 script {
                     echo "This is clone stage."
-                    sh '"kshddhuskhfd'
+                    
 
                 }
 
