@@ -1,5 +1,5 @@
 pipeline{
-    agent none
+    agent none 
 
     stages {
         stage ("clone"){
@@ -45,10 +45,10 @@ pipeline{
             }
 
         }
-        post {
-            always{
-                cleanWs()
-                }
+    }
+    post {
+        always {
+            cleanWs()
         }
     }
 }
