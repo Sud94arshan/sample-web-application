@@ -9,16 +9,17 @@ pipeline{
             agent any
             environment {
                 stageenvironment = 'clone-stage'
-                
+                docker-creds = credentials("dockerhub")
             }
             steps{
                 script {
                     currentBuild.displayName = env.JOB_NAME + "#" + env.BUILD_NUMBER
                     currentBuild.description = env.BRANCH_NAME
                     currentBuild.description = env.GIT_COMMIT
+
                     echo "This is clone stage."
                     sh 'printenv'
-                    
+                    sh "docker login -u $docker-creds_USR -p $docker-creds_PSW
 
                 }
 
