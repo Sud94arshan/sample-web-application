@@ -1,11 +1,11 @@
 pipeline{
-    agent none 
+    agent any 
     environment { 
         demo = 'environment'
     }
     options { 
         buildDiscarder(logRotator(numToKeepStr: '3'))
-        timeout(time: 1, unit: 'MINUTES') 
+        timeout(time: 1, unit: 'HOURS') 
          retry(3)
          }
     stages {
@@ -53,7 +53,7 @@ pipeline{
                     
                 }
             }
-            timeout(1) {
+            steps {
             
                 script {
                     timeout(2) {
