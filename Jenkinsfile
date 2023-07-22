@@ -5,7 +5,7 @@ pipeline{
     }
     options { 
         buildDiscarder(logRotator(numToKeepStr: '3'))
-        timeout(time: 1, unit: 'MINUTES') 
+        timeout(time: 1, unit: 'HOURS') 
          retry(3)
          }
     stages {
@@ -23,7 +23,6 @@ pipeline{
 
                     echo "This is clone stage."
                     sh 'printenv'
-                    sh "sleep 65"
                     sh "docker login -u $dockercreds_USR -p $dockercreds_PSW"
 
                 }
@@ -55,8 +54,9 @@ pipeline{
                 }
             }
             timeout(1) {
-            steps{
+            
                 script {
+                    timeout(2) {
                     sh 'python --version'
 
                 }
