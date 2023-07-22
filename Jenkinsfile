@@ -9,7 +9,7 @@ pipeline{
             agent any
             environment {
                 stageenvironment = 'clone-stage'
-                docker-creds = credentials("dockerhub")
+                
             }
             steps{
                 script {
