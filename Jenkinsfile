@@ -1,10 +1,12 @@
 pipeline{
-    agent any 
+    agent none 
     environment { 
         demo = 'environment'
     }
     options { 
         buildDiscarder(logRotator(numToKeepStr: '3'))
+        timeout(time: 1, unit: 'HOURS') 
+         retry(3)
          }
     stages {
         stage ("clone"){
@@ -51,6 +53,7 @@ pipeline{
                     
                 }
             }
+            timeout(1) {
             steps{
                 script {
                     sh 'python --version'
@@ -58,6 +61,7 @@ pipeline{
                 }
 
             }
+        }        
 
         }
     }
