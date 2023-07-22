@@ -3,7 +3,9 @@ pipeline{
     environment { 
         demo = 'environment'
     }
-
+    options { 
+        buildDiscarder(logRotator(numToKeepStr: '3'))
+         }
     stages {
         stage ("clone"){
             agent any
