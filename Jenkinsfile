@@ -19,7 +19,7 @@ pipeline{
 
                     echo "This is clone stage."
                     sh 'printenv'
-                    sh "docker login -u $dockercreds_USR -p $dockercreds_PSW
+                    sh "docker login -u $dockercreds_USR -p $dockercreds_PSW"
 
                 }
 
