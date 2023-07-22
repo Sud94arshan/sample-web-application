@@ -5,7 +5,7 @@ pipeline{
     }
     options { 
         buildDiscarder(logRotator(numToKeepStr: '3'))
-        timeout(time: 1, unit: 'HOURS') 
+        timeout(time: 1, unit: 'MINUTES') 
          retry(3)
          }
     stages {
