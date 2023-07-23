@@ -11,9 +11,6 @@ pipeline{
             string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') 
             choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: '')
             }
-        triggers { 
-            pollSCM('* * * * *')
-            }
     stages {
         stage ("clone"){
             agent any
@@ -62,7 +59,8 @@ pipeline{
             }
 
         }
-        stage ("test"){
+        stage ("deploy"){
+            when { environment name: 'DEPLOY_TO', value: 'production' }            
             agent {
                 docker {
                     image 'python:3.9-buster'
