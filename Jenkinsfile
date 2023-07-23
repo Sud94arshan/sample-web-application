@@ -4,7 +4,7 @@ pipeline{
         demo = 'environment'
     }
     options { 
-        buildDiscarder(logRotator(numToKeepStr: '3'))
+        buildDiscarder(logRotator(numToKeepStr: '4'))
         timeout(time: 1, unit: 'MINUTES') 
         }
         parameters { 
