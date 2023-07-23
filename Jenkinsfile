@@ -8,7 +8,7 @@ pipeline{
         timeout(time: 1, unit: 'MINUTES') 
         }
         parameters { 
-            string(name: 'DEPLOY_ENV', defaul tValue: 'staging', description: '') 
+            string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') 
             choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: '')
             }
         triggers { 
