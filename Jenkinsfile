@@ -27,8 +27,21 @@ pipeline{
                     echo "This is clone stage."
                     echo "$params.DEPLOY_ENV"
                     echo "$params.CHOICES"
+                    sh "sleep 60"
                     sh 'printenv'
                     sh "docker login -u $dockercreds_USR -p $dockercreds_PSW"
+
+                }
+
+            }
+
+        }
+        stage ("download pre requests"){
+
+            }
+            steps{
+                script {
+                    sh "sleep 60"
 
                 }
 
