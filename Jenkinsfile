@@ -5,7 +5,7 @@ pipeline{
     }
     options { 
         buildDiscarder(logRotator(numToKeepStr: '3'))
-        timeout(time: 1, unit: 'MINUTES') 
+        timeout(time: 1, unit: 'MINUTE') 
         }
         parameters { 
             string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') 
