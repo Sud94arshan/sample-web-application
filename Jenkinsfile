@@ -37,8 +37,6 @@ pipeline{
 
         }
         stage ("download pre requests"){
-
-            }
             steps{
                 script {
                     sh "sleep 60"
