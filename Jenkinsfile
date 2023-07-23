@@ -5,13 +5,15 @@ pipeline{
     }
     options { 
         buildDiscarder(logRotator(numToKeepStr: '3'))
-        timeout(time: 3, unit: 'MINUTES') 
+        timeout(time: 1, unit: 'MINUTES') 
         }
         parameters { 
             string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') 
             choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: '')
             }
     stages {
+        stage('Parallel In Sequential') {
+        parallel {
         stage ("clone"){
             agent any
             environment {
@@ -37,6 +39,8 @@ pipeline{
 
         }
         stage ("download pre requests"){
+
+            }
             steps{
                 script {
                     sh "sleep 60"
@@ -46,6 +50,8 @@ pipeline{
             }
 
         }
+        }
+
         stage("build"){
             agent {
                 docker {
