@@ -4,19 +4,22 @@ pipeline{
         demo = 'environment'
     }
     options { 
-        buildDiscarder(logRotator(numToKeepStr: '4'))
+        buildDiscarder(logRotator(numToKeepStr: '3'))
         timeout(time: 1, unit: 'MINUTES') 
         }
         parameters { 
-            string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '') 
+            string(name: 'DEPLOY_ENV', defaul tValue: 'staging', description: '') 
             choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: '')
+            }
+        triggers { 
+            pollSCM('* * * * *')
             }
     stages {
         stage ("clone"){
             agent any
             environment {
                 stageenvironment = 'clone-stage'
-                dockercreds = credentials("docker_hub")
+                dockercreds = credentials("dockerhub")
             }
             steps{
                 script {
@@ -61,7 +64,7 @@ pipeline{
             steps {
             
                 script {
-                    timeout(1) {
+                    timeout(2) {
                     sh 'python --version'
 
                 }
