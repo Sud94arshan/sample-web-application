@@ -60,7 +60,7 @@ pipeline{
 
         }
         stage ("deploy"){
-            when { environment name: 'DEPLOY_TO', value: 'production' }            
+            when { environment name: 'DEPLOY_ENV', value: 'production' }            
             agent {
                 docker {
                     image 'python:3.9-buster'
