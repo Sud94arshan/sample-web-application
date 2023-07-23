@@ -61,7 +61,7 @@ pipeline{
             steps {
             
                 script {
-                    timeout(2) {
+                    timeout(1) {
                     sh 'python --version'
 
                 }
