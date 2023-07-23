@@ -101,3 +101,4 @@ pipeline{
             echo "pipeline failed will be sending failure mail."
         }
     }
+}
